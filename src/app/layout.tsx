@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
 import Footer from "@/components/Footer";
+import { NextAuthProvider } from "./lib/next-auth/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <Header />
-        <Suspense fallback={<Loading />}>{children}</Suspense>
-        <Footer />
+        <NextAuthProvider>
+          <Header />
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+          <Footer />
+        </NextAuthProvider>
       </body>
     </html>
   );
