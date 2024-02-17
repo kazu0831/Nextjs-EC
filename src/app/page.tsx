@@ -1,7 +1,10 @@
 import Card from "@/components/Card";
 import Image from "next/image";
+import { getAllProducts } from "./lib/microcms/client";
 
-export default function Home() {
+export default async function Home() {
+  const { contents } = await getAllProducts()
+
   return (
     <>
       <div className="w-full h-64 md:h-96 relative flex justify-center items-center">
@@ -21,12 +24,9 @@ export default function Home() {
       </div>
 
       <main className="min-h-screen flex flex-wrap justify-center items-center mb-20">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {contents.map((item) => (
+          <Card key={item.id} item={item} />
+        ))}
       </main>
     </>
   );
