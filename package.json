@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,8 +22,7 @@
     "next-auth": "^4.24.6",
     "react": "^18",
     "react-dom": "^18.2.0",
-    "stripe": "^14.17.0",
-    "use-shopping-cart": "^3.2.0"
+    "stripe": "^14.17.0"
   },
   "devDependencies": {
     "@types/node": "^20",

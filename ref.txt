@@ -1,7 +1,0 @@
-BASE_Qiita = https://qiita.com/mamimami0709/items/7ce5e26afea1fded0747
-
-use-shopping-cart = https://zenn.dev/stripe/books/stripe-nextjs-use-shopping-cart/viewer/step1_setup_nextjs
-
-stripe = https://qiita.com/hideokamoto/items/f10d6ebb4ff53502687a
-
-stripe2 = https://qiita.com/hideokamoto/items/bc990f9211ede447b74e
