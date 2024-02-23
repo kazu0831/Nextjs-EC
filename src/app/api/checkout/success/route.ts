@@ -2,7 +2,7 @@ import prisma from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET || "");
+const stripe = new Stripe(process.env.STRIPE_SECRET || "");
 
 export async function POST(req: Request, res: NextResponse) {
   const { sessionId } = await req.json();
