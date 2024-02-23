@@ -26,21 +26,31 @@ const History = async () => {
   }
 
   return (
-    <div className="container p-4 mx-auto min-h-screen flex flex-col">
-      <div className="flex items-center justify-center mt-4">
-        <span className="font-bold">{user.name}の購入履歴</span>
-      </div>
-
-      <div className="mt-12 flex flex-col items-center justify-center">
-        {purchaseHistory.map((item) => (
-          <div key={item.id} className="py-4 w-96 flex items-center">
-            <p className="mr-3">2024年2月22日</p>
-            <h2 className="mr-3">{item.title}</h2>
-            <p>{item.price}円</p>
+    <>
+      {user ? (
+        <div className="container p-4 mx-auto min-h-screen flex flex-col">
+          <div className="flex items-center justify-center mt-4">
+            <span className="font-bold">{user.name}の購入履歴</span>
           </div>
-        ))}
-      </div>
-    </div>
+
+          <div className="mt-12 flex flex-col items-center justify-center">
+            {purchaseHistory.map((item) => (
+              <div key={item.id} className="py-4 w-96 flex items-center">
+                <p className="mr-3">2024年2月22日</p>
+                <h2 className="mr-3">{item.title}</h2>
+                <p>{item.price}円</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="container p-4 mx-auto min-h-screen flex flex-col">
+          <div className="flex items-center justify-center mt-4">
+            <span className="font-bold">ログインしていません</span>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
