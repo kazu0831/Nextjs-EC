@@ -1,6 +1,5 @@
 import React from "react";
 import ShopIcon from "@mui/icons-material/Shop";
-import { Search, ShoppingCart } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
@@ -32,15 +31,13 @@ const Header = async () => {
             </Link>
           )}
 
-          <Link href="/purchased">
-            <Image
-              className="rounded-full border-2 w-10 h-10 ml-4"
-              width={40}
-              height={40}
-              src={user?.image || "/noimage.png"}
-              alt="img"
-            />
-          </Link>
+          <Image
+            className="rounded-full border-2 w-10 h-10 ml-4"
+            width={40}
+            height={40}
+            src={user?.image || "/noimage.png"}
+            alt="img"
+          />
         </div>
       </nav>
     </header>
