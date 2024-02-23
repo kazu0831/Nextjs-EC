@@ -11,10 +11,9 @@ const History = async () => {
   let purchaseHistory: ProductTypes[] = [];
 
   if (user) {
-    const res = await fetch(
-      `https://kz-shop.vercel.app/api/history/${user.id}`,
-      { cache: "no-store" }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${user.id}`, {
+      cache: "no-store",
+    });
 
     const data = await res.json();
 

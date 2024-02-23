@@ -9,11 +9,6 @@ export const client = createClient({
 export const getAllProducts = async () => {
   const allProducts = await client.getList<ProductTypes>({
     endpoint: "products",
-    customRequestInit: {
-      next: {
-        revalidate: 3600,
-      },
-    },
   });
 
   return allProducts;
