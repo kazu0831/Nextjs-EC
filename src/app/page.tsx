@@ -1,9 +1,11 @@
+"use client";
+
 import Card from "@/components/Card";
 import Image from "next/image";
 import { getAllProducts } from "./lib/microcms/client";
 
 export default async function Home() {
-  const { contents } = await getAllProducts()
+  const { contents } = await getAllProducts();
 
   return (
     <>

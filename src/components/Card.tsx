@@ -1,19 +1,22 @@
+"use client";
+
 import { ProductTypes } from "@/types/types";
 import { Label } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { omitText } from "@/utils/omission";
 
 type CardProps = {
-  item: ProductTypes
-}
+  item: ProductTypes;
+};
 
 const Card = ({ item }: CardProps) => {
   return (
     <>
       <div className="flex flex-col items-center rounded-md m-4 w-96">
         <Link
-          href={`/`}
+          href={`/product/${item.id}`}
           className="cursor-pointer shadow-lg duration-300 hover:translate-y-1 hover:shadow-none"
         >
           <div className="relative w-96 h-64">
@@ -33,11 +36,16 @@ const Card = ({ item }: CardProps) => {
                 {item.category}
               </span>
             </div>
-            <p className="mt-2 text-lg text-slate-600">
-              この商品は...
-            </p>
+            <div
+              className="mt-2 text-lg text-slate-600"
+              dangerouslySetInnerHTML={{
+                __html: omitText(item.description, 15),
+              }}
+            />
             <div className="flex justify-between items-center mt-3">
-              <p className="text-md text-slate-700 text-right">{item.price}円</p>
+              <p className="text-md text-slate-700 text-right">
+                {item.price}円
+              </p>
             </div>
           </div>
         </Link>
