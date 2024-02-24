@@ -12,8 +12,10 @@ const History = async () => {
 
   if (user) {
     const res = await fetch(
-      `https://kz-shop.vercel.app/api/history/${user.id}`,
-      { cache: "no-store" }
+      `${process.env.NEXT_PUBLIC_API_URL}/history/${user.id}`,
+      {
+        cache: "no-store",
+      }
     );
 
     const data = await res.json();
